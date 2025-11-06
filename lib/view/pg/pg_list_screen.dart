@@ -1,20 +1,18 @@
+import 'dart:developer';
+
 import 'package:axiom_admin/controller/services/firestore_services.dart';
 import 'package:axiom_admin/model/property_model.dart';
-import 'package:axiom_admin/view/rental_list/bloc/propertylistbloc_bloc.dart';
-import 'package:axiom_admin/view/rental_list/bloc/propertylistbloc_event.dart';
-import 'package:axiom_admin/view/rental_list/widget/build_property_list.dart';
+import 'package:axiom_admin/view/pg/widgets/pg_property_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RentalListScreen extends StatelessWidget {
-   final FirestoreServices _firestoreServices = FirestoreServices();
-  RentalListScreen({super.key});
+class PgListScreen extends StatelessWidget {
+  PgListScreen({super.key});
+
+  final FirestoreServices _firestoreServices = FirestoreServices();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => PropertyBloc()..add(FetchProperties()),
-      child:  Scaffold(
+    return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC),
       appBar: AppBar(
         title: const Text(
@@ -31,17 +29,25 @@ class RentalListScreen extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: StreamBuilder<List<Property>>(
-        stream: _firestoreServices.fetchProperties(),
+        stream: _firestoreServices.fetchPgProperties(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
+            log(snapshot.error.toString());
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
           }
 
           final properties = snapshot.data ?? [];
+          log('-----------------------$properties.toString()');
+
+          if (properties.isEmpty) {
+            return const Center(child: Text("No data"));
+          }
 
           return SingleChildScrollView(
             child: Padding(
@@ -58,14 +64,13 @@ class RentalListScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  PropertyListTable(properties: properties),
+                  PgPropertyList(properties: properties),
                 ],
               ),
             ),
           );
         },
       ),
-    )
     );
   }
 }

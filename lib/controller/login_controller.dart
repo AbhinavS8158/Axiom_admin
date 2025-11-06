@@ -1,4 +1,5 @@
-import 'package:axiom_admin/view/category_selection/category_selection_screen.dart';
+
+import 'package:axiom_admin/view/dashboard/category_selection_screen.dart';
 import 'package:flutter/material.dart';
 
 final TextEditingController emailController = TextEditingController();
@@ -18,7 +19,7 @@ void login(BuildContext context) {
     );
 
  
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => CategorySelectionPage()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => AdminDashboard()));
   } else {
     // Login failed
     ScaffoldMessenger.of(context).showSnackBar(
