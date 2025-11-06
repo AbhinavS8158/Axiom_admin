@@ -1,35 +1,48 @@
-// lib/model/rent_model.dart
-class Propertycardmodel {
+class Property {
   final String id;
   final String title;
   final String location;
-  final double price;
-  final int bedrooms;
-  final int bathrooms;
+  final String price;
+  final String type;
+  final String bedrooms;
+  final String bathrooms;
+  final String email;
+  final String status;
   final List<String> imageUrl;
-  final List<String> amenities;
+  final String phone;
+  final String about;
 
-  Propertycardmodel({
+  Property({
     required this.id,
     required this.title,
     required this.location,
     required this.price,
+    required this.type,
     required this.bedrooms,
     required this.bathrooms,
+    required this.email,
+    required this.status,
     required this.imageUrl,
-    required this.amenities,
+    required this.phone,
+    required this.about,
   });
 
-  factory Propertycardmodel.fromMap(Map<String, dynamic> data, String documentId) {
-    return Propertycardmodel(
+  factory Property.fromMap(Map<String, dynamic> data, String documentId) {
+    return Property(
       id: documentId,
       title: data['name'] ?? '',
       location: data['location'] ?? '',
-      price: (data['price'] ?? 0).toDouble(),
-      bedrooms: data['bedrooms'] ?? 0,
-      bathrooms: data['bathrooms'] ?? 0,
-      imageUrl: List<String>.from(data['photoPath'] ?? []),
-      amenities: List<String>.from(data['amenities'] ?? []),
+      price: data['amount']?.toString() ?? '',
+      type: data['propertyType'] ?? '',
+      bedrooms: data['bedroom']?.toString() ?? '0',
+      bathrooms: data['bathroom']?.toString() ?? '0',
+      email: data['email'] ?? '',
+      status: data['status'] ?? '',
+      imageUrl: data['photoPath'] != null && data['photoPath'] is List
+          ? List<String>.from(data['photoPath'])
+          : [],
+      phone: data['phoneNumber'] ?? '',
+      about: data['about'] ?? '',
     );
   }
 }

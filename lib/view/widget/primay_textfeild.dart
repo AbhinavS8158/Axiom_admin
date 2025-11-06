@@ -6,13 +6,14 @@ class PrimaryTextfield extends StatelessWidget {
   final String hint;
   final  IconData? icon;
   final TextEditingController ?controller;
+   final FormFieldValidator<String>? validator;
   
-  const PrimaryTextfield({super.key, required this.label, required this.hint, this.icon, this.controller});
+  const PrimaryTextfield({super.key, required this.label, required this.hint, this.icon, this.controller,this.validator});
 
   @override
   Widget build(BuildContext context) {
    
-    return TextField(
+    return TextFormField(
       controller: emailController,
       decoration: InputDecoration(
         labelText: label,
@@ -24,6 +25,9 @@ class PrimaryTextfield extends StatelessWidget {
           borderSide: const BorderSide(color: Colors.green, width: 2),
         ),
       ),
+      validator: validator ,
+        
+     
     );
   }
 }

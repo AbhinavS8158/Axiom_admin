@@ -1,8 +1,10 @@
 
 import 'package:axiom_admin/controller/login_controller.dart';
+import 'package:axiom_admin/view/login/bloc/login_bloc.dart';
 import 'package:axiom_admin/view/widget/primary_btn.dart';
 import 'package:axiom_admin/view/widget/primay_textfeild.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 class Loginfields extends StatelessWidget {
   const Loginfields({super.key});
   @override
@@ -55,6 +57,12 @@ class Loginfields extends StatelessWidget {
               icon: Icons.email_outlined,
               label: 'Email',
               hint: 'Enter your email address',
+              validator:  (value) {
+                if(value == null||value .isEmpty){
+                  return "Please enter the name";
+                }
+                return null;
+              },
             ),
             const SizedBox(height: 20),
             TextField(
@@ -77,7 +85,7 @@ class Loginfields extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            PrimaryBtn(label: "Login"),
+            PrimaryBtn( "Login",()=>context.read<LoginBloc>().add(LoginBtn(email: emailController.text, password: passwordController.text))),
             const SizedBox(height: 24),
           ],
         ),
