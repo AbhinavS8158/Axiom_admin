@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Axiom_admin',
         theme: ThemeData(
        
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
