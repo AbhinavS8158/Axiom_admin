@@ -17,10 +17,8 @@ void main()async {
   );
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -29,21 +27,15 @@ class MyApp extends StatelessWidget {
         BlocProvider<PropertyBloc>(create: (_)=>PropertyBloc()..add(FetchProperties())),
         BlocProvider<SelllistblocBloc>(create: (_)=>SelllistblocBloc()..add(SellFetchProperties())),
         BlocProvider<PglistBloc>(create: (_)=>PglistBloc()..add(PgFetchProperties())),
-        
       ],
       child: MaterialApp(
         title: 'Axiom_admin',
         theme: ThemeData(
-       
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         debugShowCheckedModeBanner: false,
         home:
-        
         SignInScreen(),
-        // RentalListScreen()
-        // AdminDashboard(),  
-       
       ),
     );
   }

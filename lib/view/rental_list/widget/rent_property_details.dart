@@ -163,8 +163,10 @@ class RentPropertyDetails extends StatelessWidget {
               _buildDetailRow("Price", property.price, Icons.attach_money),
               _buildDetailRow("About", property.about, Icons.info_outline),
               _buildDetailRow("Type", property.type, Icons.home_work_outlined),
+              _buildDetailRow("Furnished", property.furnished, Icons.chair_alt),
               _buildDetailRow("Bedrooms", property.bedrooms.toString(), Icons.bedroom_parent_outlined),
               _buildDetailRow("Bathrooms", property.bathrooms.toString(), Icons.bathtub_outlined),
+              _buildAmenitiesSection( property.amenities),
               _buildDetailRow("Phone", property.phone, Icons.phone_outlined),
               _buildDetailRow("Email", property.email, Icons.email_outlined),
               _buildDetailRow("Status", property.status, Icons.circle,
@@ -207,6 +209,53 @@ class RentPropertyDetails extends StatelessWidget {
       ],
     );
   }
+
+  /// Renders amenities as chips. Shows placeholder text when none present.
+Widget _buildAmenitiesSection(List<String> amenities) {
+  if (amenities.isEmpty) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Row(
+        children: const [
+          Icon(Icons.category, size: 16, color: Color(0xFF64748B)),
+          SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              'No amenities listed',
+              style: TextStyle(fontSize: 14, color: Color(0xFF475569), fontWeight: FontWeight.w500),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 12),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Amenities',
+          style: TextStyle(fontSize: 12, color: Color(0xFF64748B), fontWeight: FontWeight.w500),
+        ),
+        const SizedBox(height: 6),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: amenities.map((a) {
+            return Chip(
+              label: Text(a, style: const TextStyle(fontSize: 12)),
+              backgroundColor: const Color(0xFFF1F5F9),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            );
+          }).toList(),
+        ),
+      ],
+    ),
+  );
+}
+
 
   /// 🧱 Helper for info rows
   Widget _buildDetailRow(String label, String value, IconData icon, {Color? statusColor}) {

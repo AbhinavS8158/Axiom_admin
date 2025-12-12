@@ -141,7 +141,15 @@ class RentalPropertyRow extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-
+              Expanded(
+              flex: 2,
+              child: Text(
+                property.about,
+                style: cellStyle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
             // 🛏️ Type & Rooms
             Expanded(
               flex: 2,

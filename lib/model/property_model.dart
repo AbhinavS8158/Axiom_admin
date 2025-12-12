@@ -11,6 +11,8 @@ class Property {
   final List<String> imageUrl;
   final String phone;
   final String about;
+  final String furnished;
+    final List<String> amenities;
 
   Property({
     required this.id,
@@ -25,9 +27,28 @@ class Property {
     required this.imageUrl,
     required this.phone,
     required this.about,
+    required this.furnished,
+    required this.amenities,
+
   });
 
   factory Property.fromMap(Map<String, dynamic> data, String documentId) {
+     final List<String> amenList = [];
+    if (data['amenities'] != null && data['amenities'] is List) {
+      for (final item in List.from(data['amenities'])) {
+        if (item == null) continue;
+        if (item is String) {
+          amenList.add(item);
+        } else if (item is Map) {
+          // try common keys
+          if (item['name'] != null) amenList.add(item['name'].toString());
+          else if (item['title'] != null) amenList.add(item['title'].toString());
+          else amenList.add(item.values.first.toString());
+        } else {
+          amenList.add(item.toString());
+        }
+      }
+    }
     return Property(
       id: documentId,
       title: data['name'] ?? '',
@@ -43,6 +64,8 @@ class Property {
           : [],
       phone: data['phoneNumber'] ?? '',
       about: data['about'] ?? '',
+      furnished: data['furnished'] ??'',
+      amenities: amenList,
     );
   }
 }
