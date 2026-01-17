@@ -1,5 +1,4 @@
 import 'package:axiom_admin/controller/services/firestore_services.dart';
-import 'package:axiom_admin/view/dashboard/widget/quick_action_card.dart';
 import 'package:axiom_admin/view/dashboard/widget/seat_cards.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +51,7 @@ class DashboardContent extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 20),
-                const Expanded(child: QuickActionsCard()),
+                // const Expanded(child: QuickActionsCard()),
               ],
             ),
           ),

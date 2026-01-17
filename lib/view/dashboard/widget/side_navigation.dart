@@ -4,6 +4,7 @@ import 'package:axiom_admin/view/dashboard/widget/navigation_item.dart';
 import 'package:axiom_admin/view/pg/pg_list_screen.dart';
 import 'package:axiom_admin/view/rental_list/rental_list_screen.dart';
 import 'package:axiom_admin/view/seller_list/sell_list_screen.dart';
+import 'package:axiom_admin/view/settingspage/settings.dart';
 import 'package:flutter/material.dart';
 
 class SideNavigation extends StatelessWidget {
@@ -75,7 +76,7 @@ class SideNavigation extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => AdminDashboard()),
+                      MaterialPageRoute(builder: (context) => AdminSettingsPage()),
                     );
                   },
                 ),

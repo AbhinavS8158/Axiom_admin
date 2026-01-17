@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<PropertyBloc>(create: (_)=>PropertyBloc()..add(FetchProperties())),
         BlocProvider<SelllistblocBloc>(create: (_)=>SelllistblocBloc()..add(SellFetchProperties())),
         BlocProvider<PglistBloc>(create: (_)=>PglistBloc()..add(PgFetchProperties())),
+        //  BlocProvider<MaintenanceBloc>(create: (_) =>MaintenanceBloc()..add(LoadMaintenanceStatus())),
       ],
       child: MaterialApp(
         title: 'Axiom_admin',
