@@ -33,10 +33,10 @@ class TopAppBar extends StatelessWidget {
           ),
           Row(
             children: [
-              IconButton(
-                icon: const Icon(Icons.notifications),
-                onPressed: () {},
-              ),
+              // IconButton(
+              //   icon: const Icon(Icons.notifications),
+              //   onPressed: () {},
+              // ),
               const SizedBox(width: 10),
               const UserProfile(),
             ],

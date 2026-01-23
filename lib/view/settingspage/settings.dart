@@ -1,6 +1,7 @@
 import 'package:axiom_admin/view/settingspage/bloc/settings_bloc.dart';
 import 'package:axiom_admin/view/settingspage/bloc/settings_event.dart';
 import 'package:axiom_admin/view/settingspage/bloc/settings_state.dart';
+import 'package:axiom_admin/view/widget/info_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +14,7 @@ class AdminSettingsPage extends StatelessWidget {
       create: (_) => PolicyBloc()..add(LoadPolicy()),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Policies & Privacy'),
+          title: const Text('Settings'),
         ),
         body: BlocBuilder<PolicyBloc, PolicyState>(
           builder: (context, state) {
@@ -27,19 +28,19 @@ class AdminSettingsPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                      _buildSection(
+                      InfoSection(
                       title: 'About Us',
                       content: state.policy.aboutus,
                     ),
-                    _buildSection(
+                    InfoSection(
                       title: 'Privacy Policy',
                       content: state.policy.privacyPolicy,
                     ),
-                    _buildSection(
+                    InfoSection(
                       title: 'Terms & Conditions',
                       content: state.policy.termsConditions,
                     ),
-                    _buildSection(
+                    InfoSection(
                       title: 'Data Usage Policy',
                       content: state.policy.dataUsage,
                     ),
@@ -55,43 +56,43 @@ class AdminSettingsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSection({
-    required String title,
-    required String content,
-  }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 24),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: const [
-          BoxShadow(
-            blurRadius: 10,
-            color: Colors.black12,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            content,
-            style: const TextStyle(
-              fontSize: 14,
-              height: 1.6,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildSection({
+  //   required String title,
+  //   required String content,
+  // }) {
+  //   return Container(
+  //     margin: const EdgeInsets.only(bottom: 24),
+  //     padding: const EdgeInsets.all(20),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(12),
+  //       boxShadow: const [
+  //         BoxShadow(
+  //           blurRadius: 10,
+  //           color: Colors.black12,
+  //         ),
+  //       ],
+  //     ),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text(
+  //           title,
+  //           style: const TextStyle(
+  //             fontSize: 18,
+  //             fontWeight: FontWeight.bold,
+  //           ),
+  //         ),
+  //         const SizedBox(height: 12),
+  //         Text(
+  //           content,
+  //           style: const TextStyle(
+  //             fontSize: 14,
+  //             height: 1.6,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

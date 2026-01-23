@@ -18,8 +18,6 @@ class PolicyBloc extends Bloc<PolicyEvent, PolicyState> {
       PolicyLoaded(
         SettingsModel(
           aboutus: '''
-About Us
-
 Axiom is a modern real estate property management application designed to simplify the way properties are listed, managed, and serviced. Our platform brings together property owners, service providers, and users into a single, reliable ecosystem that emphasizes transparency, efficiency, and trust.
 
 In today’s fast-moving real estate environment, managing properties, handling inquiries, tracking bookings, and maintaining clear communication can be complex and time-consuming. Axiom was built to solve these challenges by providing a streamlined digital solution that makes property management smarter and more accessible.
