@@ -40,7 +40,7 @@ lib/
 
 ⚙️ Installation Guide
 Clone the repository:
-git clone https://github.com/yourusername/axiom-admin-web.git
+git clone https://github.com/AbhinavS8158/Axiom_admin.git
 
 Navigate into the project:
 cd axiom-admin-web
