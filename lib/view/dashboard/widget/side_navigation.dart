@@ -72,7 +72,7 @@ class SideNavigation extends StatelessWidget {
 
                 NavigationItem(
                   icon: Icons.settings,
-                  title: 'Settings',
+                  title: "About us",
                   onPressed: () {
                     Navigator.push(
                       context,

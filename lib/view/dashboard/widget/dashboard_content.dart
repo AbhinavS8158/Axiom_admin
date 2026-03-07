@@ -18,7 +18,7 @@ class DashboardContent extends StatelessWidget {
           _buildGreetingSection(),
           const SizedBox(height: 20),
 
-          /// 🔽 StreamBuilder replaces the old `StatsCardsRow`
+         
           StreamBuilder<Map<String, int>>(
             stream: statsService.getStatsStream(),
             builder: (context, snapshot) {

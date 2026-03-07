@@ -41,12 +41,12 @@ class PropertyRow extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // 📷 Property Info
+          
             Expanded(
               flex: 4,
               child: Row(
                 children: [
-                  // Image
+            
                   Container(
                     width: 40,
                     height: 40,
@@ -69,7 +69,7 @@ class PropertyRow extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  // Details
+                
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +132,7 @@ class PropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 🏘️ About the property
+            
             Expanded(
               flex: 2,
               child: Text(
@@ -143,7 +143,7 @@ class PropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 🛏️ Type & Area
+          
             Expanded(
               flex: 2,
               child: Column(
@@ -186,7 +186,7 @@ class PropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 🟩 Status
+        
             Expanded(
               flex: 1,
               child: BlocBuilder<SelllistblocBloc, SelllistblocState>(
@@ -204,7 +204,7 @@ class PropertyRow extends StatelessWidget {
               ),
             ),
 
-            // ⚙️ Actions
+  
             const SizedBox(width: 8),
             SizedBox(
               width: 112,

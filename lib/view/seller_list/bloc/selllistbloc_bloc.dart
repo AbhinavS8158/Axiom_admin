@@ -13,7 +13,7 @@ class SelllistblocBloc extends Bloc<SelllistblocEvent, SelllistblocState> {
     on<SellFetchProperties>((event, emit) async {
       emit(SellPropertyLoading());
       try {
-        await Future.delayed(const Duration(seconds: 1)); // Dummy delay
+        await Future.delayed(const Duration(seconds: 1));
 
       
 

@@ -14,7 +14,7 @@ class PgPropertyDetailsDialog extends StatelessWidget {
     required this.property,
   }) : super(key: key);
 
-  /// 🖼️ Full-screen image preview
+  
   void _showImagePreview(BuildContext context, String imageUrl) {
     Navigator.of(context).push(
       MaterialPageRoute(

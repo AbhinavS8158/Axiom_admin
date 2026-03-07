@@ -1,5 +1,5 @@
 import 'package:axiom_admin/firebase_options.dart' show DefaultFirebaseOptions;
-import 'package:axiom_admin/view/login/login.dart';
+import 'package:axiom_admin/view/authwrapper/authwrapper.dart';
 import 'package:axiom_admin/view/pg/bloc/pglist_bloc.dart';
 import 'package:axiom_admin/view/pg/bloc/pglist_event.dart';
 import 'package:axiom_admin/view/rental_list/bloc/propertylistbloc_bloc.dart';
@@ -19,7 +19,7 @@ void main()async {
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         home:
-        SignInScreen(),
+        AuthWrapper(),
       ),
     );
   }

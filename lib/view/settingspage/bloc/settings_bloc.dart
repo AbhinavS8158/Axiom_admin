@@ -12,7 +12,7 @@ class PolicyBloc extends Bloc<PolicyEvent, PolicyState> {
     LoadPolicy event,
     Emitter<PolicyState> emit,
   ) async {
-    await Future.delayed(const Duration(milliseconds: 600)); // API / Firebase
+    await Future.delayed(const Duration(milliseconds: 600)); 
 
     emit(
       PolicyLoaded(

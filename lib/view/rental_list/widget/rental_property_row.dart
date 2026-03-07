@@ -41,12 +41,12 @@ class RentalPropertyRow extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // 🏠 Property Info Section
+      
             Expanded(
               flex: 4,
               child: Row(
                 children: [
-                  // Property Image
+              
                   Container(
                     width: 40,
                     height: 40,
@@ -68,7 +68,7 @@ class RentalPropertyRow extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  // Property Details
+      
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +131,7 @@ class RentalPropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 🏘️ About Section
+    
          
               Expanded(
               flex: 2,
@@ -142,7 +142,7 @@ class RentalPropertyRow extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            // 🛏️ Type & Rooms
+      
             Expanded(
               flex: 2,
               child: Column(
@@ -185,7 +185,7 @@ class RentalPropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 🟩 Status
+  
             Expanded(
               flex: 1,
               child: BlocBuilder<SelllistblocBloc, SelllistblocState>(
@@ -203,7 +203,7 @@ class RentalPropertyRow extends StatelessWidget {
               ),
             ),
 
-            // ⚙️ Actions
+        
             const SizedBox(width: 8),
             SizedBox(
               width: 112,

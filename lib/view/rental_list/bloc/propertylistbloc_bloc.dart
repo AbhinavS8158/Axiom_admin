@@ -14,8 +14,8 @@ class PropertyBloc extends Bloc<PropertyEvent, PropertyState> {
       emit(PropertyLoading());
       try {
        
-        await Future.delayed(const Duration(seconds: 1)); // dummy delay
-        final properties = <Property>[]; // replace with your fetched list
+        await Future.delayed(const Duration(seconds: 1)); 
+        final properties = <Property>[]; 
         emit(PropertyLoaded(properties));
       } catch (e) {
         emit(PropertyError(e.toString()));
@@ -31,7 +31,7 @@ class PropertyBloc extends Bloc<PropertyEvent, PropertyState> {
 
         log('Approved property: ${event.property.title}');
         emit(PropertyActionSuccess('Property approved successfully.'));
-        add(FetchProperties()); // refresh list after approval
+        add(FetchProperties()); 
   } catch (e) {
     emit(PropertyError('Failed to update status: ${e.toString()}'));
   }

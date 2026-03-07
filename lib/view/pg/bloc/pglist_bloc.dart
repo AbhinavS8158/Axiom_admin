@@ -14,8 +14,8 @@ class PglistBloc extends Bloc<PglistEvent, PglistState> {
       emit(PgPropertyLoading());
       try {
        
-        await Future.delayed(const Duration(seconds: 1)); // dummy delay
-        final properties = <Property>[]; // replace with your fetched list
+        await Future.delayed(const Duration(seconds: 1)); 
+        final properties = <Property>[]; 
         emit(PgPropertyLoaded(properties));
       } catch (e) {
         emit(PgPropertyError(e.toString()));
@@ -31,7 +31,7 @@ class PglistBloc extends Bloc<PglistEvent, PglistState> {
 
         log('Approved property: ${event.property.title}');
         emit(PgPropertyActionSuccess('Property approved successfully.'));
-        add(PgFetchProperties()); // refresh list after approval
+        add(PgFetchProperties()); 
   } catch (e) {
     emit(PgPropertyError('Failed to update status: ${e.toString()}'));
   }

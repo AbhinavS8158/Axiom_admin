@@ -14,7 +14,7 @@ class AdminSettingsPage extends StatelessWidget {
       create: (_) => PolicyBloc()..add(LoadPolicy()),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Settings'),
+          title: const Text('About us & Terms and condition '),
         ),
         body: BlocBuilder<PolicyBloc, PolicyState>(
           builder: (context, state) {

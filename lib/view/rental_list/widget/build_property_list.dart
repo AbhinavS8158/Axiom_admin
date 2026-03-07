@@ -24,7 +24,7 @@ class PropertyListTable extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Header
+        
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: const BoxDecoration(
@@ -53,7 +53,7 @@ class PropertyListTable extends StatelessWidget {
             ),
           ),
 
-          // Table Header
+      
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             decoration: const BoxDecoration(
@@ -74,7 +74,7 @@ class PropertyListTable extends StatelessWidget {
             ),
           ),
 
-          // Property Rows
+      
           ...properties.asMap().entries.map((entry) {
             final index = entry.key;
             final property = entry.value;

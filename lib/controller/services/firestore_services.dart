@@ -8,7 +8,7 @@ class FirestoreServices {
 
 
 
-  // Stream for rent properties
+//  rent properties
   Stream<List<Property>> fetchProperties() {
     return _firestore.collection('rent_property').snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
@@ -18,7 +18,7 @@ class FirestoreServices {
     });
   }
 
-  // Stream for sell properties
+  //  sell properties
   Stream<List<Property>> fetchsellProperties() {
     return _firestore.collection('sell_property').snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
@@ -28,7 +28,7 @@ class FirestoreServices {
     });
   }
 
-  // Future for PG properties (if no real-time updates needed)
+  // PG properties 
   Stream<List<Property>> fetchPgProperties()  {
 
    return _firestore.collection('pg_property').snapshots().map((snapshot) {

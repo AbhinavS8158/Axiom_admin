@@ -36,12 +36,12 @@ class PgPropertyRow extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // 🏠 Property Info
+          
             Expanded(
               flex: 4,
               child: Row(
                 children: [
-                  // 🖼️ Image
+              
                   Container(
                     width: 40,
                     height: 40,
@@ -62,7 +62,7 @@ class PgPropertyRow extends StatelessWidget {
                   ),
                   const SizedBox(width: 12),
 
-                  // 📋 Details
+                  
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +125,7 @@ class PgPropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 📖 About
+          
             Expanded(
               flex: 2,
               child: Text(
@@ -136,7 +136,7 @@ class PgPropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 🏡 Type & Rooms
+          
             Expanded(
               flex: 2,
               child: Column(
@@ -179,7 +179,7 @@ class PgPropertyRow extends StatelessWidget {
               ),
             ),
 
-            // 🟢 Status (with Bloc)
+          
             Expanded(
               flex: 1,
               child: BlocBuilder<PglistBloc, PglistState>(
@@ -197,7 +197,7 @@ class PgPropertyRow extends StatelessWidget {
               ),
             ),
 
-            // ⚙️ Actions
+          
             const SizedBox(width: 8),
             SizedBox(
               width: 112,

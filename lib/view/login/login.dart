@@ -6,7 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+  SignInScreen({super.key});
+
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -15,41 +19,49 @@ class SignInScreen extends StatelessWidget {
       child: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
-            ScaffoldMessenger.of(
+
+           
+            emailController.clear();
+            passwordController.clear();
+
+            Navigator.pushReplacement(
               context,
-            ).showSnackBar(const SnackBar(content: Text("Login Success")));
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AdminDashboard(),
-          )
-          );
+              MaterialPageRoute(builder: (_) => AdminDashboard()),
+            );
           }
-          if(state is LoginError){
+
+          if (state is LoginError) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text("Incorrect Email and Password"),
-              duration: Duration(seconds: 2),
-              )
+              const SnackBar(
+                content: Text("Incorrect Email and Password"),
+              ),
             );
           }
         },
         builder: (context, state) {
-          return buidScaffold(context);
-        }
-      ),
-    );
-  }
-
-  Widget buidScaffold(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.white, Color(0xFFF5F5F5)],
-          ),
-        ),
-        child: Row(
-          children: const [Loginimge(), Expanded(child: Loginfields())],
-        ),
+          return Scaffold(
+            body: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.white, Color(0xFFF5F5F5)],
+                ),
+              ),
+              child: Row(
+                children: [
+                  const Loginimge(),
+                  Expanded(
+                    child: Loginfields(
+                      emailController: emailController,
+                      passwordController: passwordController,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

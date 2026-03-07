@@ -12,19 +12,19 @@ class PgStatusChip extends StatelessWidget {
     String displayStatus;
 
     switch (status) {
-      case '1': // Accepted
+      case '1': 
         bg = const Color(0xFFD1FAE5);
         text = const Color(0xFF065F46);
         icon = Icons.check_circle;
         displayStatus = 'Accepted';
         break;
-      case '2': // Rejected
+      case '2': 
         bg = const Color(0xFFFEE2E2);
         text = const Color(0xFF991B1B);
         icon = Icons.cancel;
         displayStatus = 'Rejected';
         break;
-      default: // Pending
+      default: 
         bg = const Color(0xFFFEF3C7);
         text = const Color(0xFF92400E);
         icon = Icons.schedule;

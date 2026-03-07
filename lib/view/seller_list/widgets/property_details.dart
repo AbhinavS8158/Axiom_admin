@@ -14,7 +14,7 @@ class PropertyDetailsDialog extends StatelessWidget {
     required this.property,
   }) : super(key: key);
 
-  /// 🖼️ Simple full-screen image preview
+  
   void _showImagePreview(BuildContext context, String imageUrl) {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -158,7 +158,7 @@ class PropertyDetailsDialog extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // 🏠 Property Details
+            
               _buildDetailRow("Location", property.location, Icons.location_on_outlined),
               _buildDetailRow("Price", property.price, Icons.attach_money),
               _buildDetailRow("About", property.about, Icons.info_outline),
@@ -252,7 +252,7 @@ Widget _buildAmenitiesSection(List<String> amenities) {
     ),
   );
 }
-  /// 🧱 Helper widget for detail rows
+
   Widget _buildDetailRow(String label, String value, IconData icon, {Color? statusColor}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),

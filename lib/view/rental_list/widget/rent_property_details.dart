@@ -14,7 +14,7 @@ class RentPropertyDetails extends StatelessWidget {
     required this.property,
   }) : super(key: key);
 
-  /// 🖼️ Full-screen image preview
+  
   void _showImagePreview(BuildContext context, String imageUrl) {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -103,7 +103,7 @@ class RentPropertyDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 📷 Property Image (Tap to preview)
+            
                if (property.imageUrl.isNotEmpty)
                 SizedBox(
                   height: 200,
@@ -158,7 +158,7 @@ class RentPropertyDetails extends StatelessWidget {
                 ),
 
               const SizedBox(height: 16),
-              // 🏠 Property Details
+              
               _buildDetailRow("Location", property.location, Icons.location_on_outlined),
               _buildDetailRow("Price", property.price, Icons.attach_money),
               _buildDetailRow("About", property.about, Icons.info_outline),
@@ -210,7 +210,7 @@ class RentPropertyDetails extends StatelessWidget {
     );
   }
 
-  /// Renders amenities as chips. Shows placeholder text when none present.
+
 Widget _buildAmenitiesSection(List<String> amenities) {
   if (amenities.isEmpty) {
     return Padding(
@@ -256,8 +256,6 @@ Widget _buildAmenitiesSection(List<String> amenities) {
   );
 }
 
-
-  /// 🧱 Helper for info rows
   Widget _buildDetailRow(String label, String value, IconData icon, {Color? statusColor}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -295,7 +293,7 @@ Widget _buildAmenitiesSection(List<String> amenities) {
     );
   }
 
-  /// 🎨 Status color helper
+  
   static Color _getStatusColor(String status) {
     switch (status.toLowerCase()) {
       case 'approved':
